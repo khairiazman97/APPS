@@ -1,0 +1,29 @@
+{% extends 'base.html'%}  
+{% block content%}
+   <form method="post" action="{{url_for('post_user')}}">
+        <lable>Username:</lable>
+        <input id="username", name="username" type="text"/>
+        <lable>Email:</lable>
+        <input id="email", name="email" type="text"/>
+        <input type="submit" />
+    </form>
+    
+    <label>Details</label><br>
+    <table border="1">
+        <tr>
+            <th> id </th>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>  
+        
+        {%for users in myuser%}
+        <tr>
+            <td>{{users.id}}</td>
+            <td>{{users.username}}</td>
+            <td>{{users.email}}</td>
+        </tr>
+        {%endfor%}
+
+        {{oneItem}}<!--use to query one item only-->
+        </table>
+{% endblock%}
